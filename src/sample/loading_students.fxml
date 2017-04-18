@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane prefHeight="697.0" prefWidth="1022.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="sample.Controller">
+  <children>
+    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="697.0" prefWidth="1022.0">
+      <bottom>
+        <Pane prefHeight="24.0" prefWidth="1022.0" styleClass="maiBar">
+          <stylesheets>
+            <URL value="@Resources/uiStyle.css" />
+          </stylesheets>
+        </Pane>
+      </bottom>
+      <center>
+        <Pane prefHeight="200.0" prefWidth="200.0" styleClass="mainPanel">
+          <stylesheets>
+            <URL value="@Resources/uiStyle.css" />
+          </stylesheets>
+        </Pane>
+      </center>
+      <left>
+        <Pane fx:id="leftPannel" prefHeight="200.0" prefWidth="200.0" styleClass="leftPannel">
+          <stylesheets>
+            <URL value="@Resources/uiStyle.css" />
+          </stylesheets>
+        </Pane>
+      </left>
+      <top>
+        <MenuBar styleClass="maiBar">
+          <menus>
+            <Menu mnemonicParsing="false" text="File">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Close" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Delete" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+              <items>
+                <MenuItem mnemonicParsing="false" text="About" />
+              </items>
+            </Menu>
+          </menus>
+          <stylesheets>
+            <URL value="@Resources/uiStyle.css" />
+          </stylesheets>
+        </MenuBar>
+      </top>
+    </BorderPane>
+  </children>
+</Pane>
