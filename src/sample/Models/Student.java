@@ -23,13 +23,15 @@ public class Student {
     private String courseName;
     private String enrollmentYear;
     private String courseFees;
-    private List<Assesment> assesments = new ArrayList<Assesment>();
+    private List<Assessment> assessments = new ArrayList<Assessment>();
     private String dissertationTitle;
     private String supervisorName;
     private String staff_idstaff;
+    private String doubleMarkerID;
 
 
-    public Student(int idStudent, String studentCode, String name, String surName, String address, String postCode, String email, String mobileNumber, String courseName, String enrollmentYear, String courseFees, String dissertationTitle, List<Assesment> assesments) {
+
+    public Student(int idStudent, String studentCode, String name, String surName, String address, String postCode, String email, String mobileNumber, String courseName, String enrollmentYear, String courseFees, String dissertationTitle, List<Assessment> assessments) {
         this.idStudent = idStudent;
         this.studentCode = studentCode;
         this.name = name;
@@ -41,10 +43,10 @@ public class Student {
         this.courseName = courseName;
         this.enrollmentYear = enrollmentYear;
         this.courseFees = courseFees;
-        this.assesments = assesments;
+        this.assessments = assessments;
     }
 
-    public Student(String studentCode, String name, String surName, String address, String postCode, String email, String mobileNumber, String courseName, String enrollmentYear, String courseFees, String dissertationTitle,String supervisorName) {
+    public Student(String studentCode, String name, String surName, String address, String postCode, String email, String mobileNumber, String courseName, String enrollmentYear, String courseFees, String dissertationTitle) {
         this.studentCode = studentCode;
         this.name = name;
         this.surName = surName;
@@ -56,7 +58,6 @@ public class Student {
         this.enrollmentYear = enrollmentYear;
         this.courseFees = courseFees;
         this.dissertationTitle = dissertationTitle;
-        this.supervisorName=supervisorName;
     }
 
     public Student() {
@@ -150,12 +151,12 @@ public class Student {
         this.courseFees = courseFees;
     }
 
-    public List<Assesment> getAssesments() {
-        return assesments;
+    public List<Assessment> getAssessments() {
+        return assessments;
     }
 
-    public void setAssesments(List<Assesment> assesments) {
-        this.assesments = assesments;
+    public void setAssessments(List<Assessment> assessments) {
+        this.assessments = assessments;
     }
 
     public String getDissertationTitle() {
@@ -182,6 +183,12 @@ public class Student {
         this.staff_idstaff = staff_idstaff;
     }
 
+    public String getDoubleMarkerID() {return doubleMarkerID;
+    }
+
+    public void setDoubleMarkerID(String doubleMarkerID) {this.doubleMarkerID = doubleMarkerID;
+    }
+
     /**
     Retrieve student information based on StudentCode
      */
@@ -197,6 +204,7 @@ public class Student {
                 ResultSet resultSet = st.executeQuery(query);
 
                 if (resultSet.next()) {
+                    student.setIdStudent(resultSet.getInt("idStudents"));
                     student.setName(resultSet.getString("studentName"));
                     student.setSurName(resultSet.getString("studentSurname"));
                     student.setAddress(resultSet.getString("address"));
@@ -208,6 +216,7 @@ public class Student {
                     student.setDissertationTitle(resultSet.getString("dissertationTitle"));
                     student.setSupervisorName(resultSet.getString("supervisorName"));
                     student.setStaff_idstaff(resultSet.getString("staff_idstaff"));
+                    student.setDoubleMarkerID(resultSet.getString("doubleMakerID"));
 
                     //student=new Student(studentCode,name,surName,address,postCode,mobileNumber,courseFees,enrollmentYear,courseFees,dissertationTitle,supervisorName,staff_idstaff);
                     return student;
@@ -252,6 +261,7 @@ public class Student {
                     student.setDissertationTitle(resultSet.getString("dissertationTitle"));
                     student.setSupervisorName(resultSet.getString("supervisorName"));
                     student.setStaff_idstaff(resultSet.getString("staff_idstaff"));
+                    student.setDoubleMarkerID(resultSet.getString("doubleMakerID"));
 
                     fullList.add(n,student);
                     System.out.println("New Student Added:" + fullList.get(n).getName());
@@ -259,24 +269,22 @@ public class Student {
                     student= null;
 
                 }
+                connection.close();
                 return fullList;
             }
 
         } catch (Exception e) {
             System.out.println("Connection Exception :"+e.getMessage());
         }
-
-
-
         return fullList;
     }
 
     /**
     * Create New Student in DB
     * */
-    public void createNewStudent(String studentCode, String name, String surName, String address, String postCode, String email, String mobileNumber, String courseName, String enrollmentYear, String courseFees, String disertationTittle,String supervisorName){
-
-        Student student = new Student(studentCode, name,  surName,  address,  postCode,  email,  mobileNumber,  courseName,  enrollmentYear,  courseFees, disertationTittle, supervisorName);
+    public void createNewStudent(Student student){
+        //String studentCode, String name, String surName, String address, String postCode, String email, String mobileNumber, String courseName, String enrollmentYear, String courseFees, String disertationTittle
+      //  Student student = new Student(studentCode, name,  surName,  address,  postCode,  email,  mobileNumber,  courseName,  enrollmentYear,  courseFees, disertationTittle );
 
         try {
             Connection connection = DBConnection.getConnection();
@@ -286,8 +294,8 @@ public class Student {
                 System.out.println("Conection succesfull");
                 PreparedStatement ps;
                 ps = (PreparedStatement) connection.prepareStatement(   "INSERT INTO db16442932.Students (studentCode, studentName,  studentSurname,  address" +
-                                                                            ",  postCode,  studentEmail,  mobileNumber,  courseName,  enrollYear,  courseFees, dissertationTitle, supervisorName)" +
-                        "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)   ");
+                                                                            ",  postCode,  studentEmail,  mobileNumber,  courseName,  enrollYear,  courseFees, dissertationTitle)" +
+                        "VALUES (?,?,?,?,?,?,?,?,?,?,?)   ");
                 ps.setString(1, student.getStudentCode());
                 ps.setString(2, student.getName());
                 ps.setString(3, student.getSurName());
@@ -299,7 +307,7 @@ public class Student {
                 ps.setString(9, student.getEnrollmentYear());
                 ps.setString(10, student.getCourseFees());
                 ps.setString(11, student.getDissertationTitle());
-                ps.setString(12, student.getSupervisorName());
+
 
                 ps.executeUpdate();
                 ps.close();
@@ -317,42 +325,73 @@ public class Student {
 
     /**
      Delete student information based on StudentCode
+     //DELETE FROM `db16442932`.`Students` WHERE `idStudents`='21' and`staff_idstaff`='9999';
      */
-    public Student deleteStudent(String studentCode) {
-        Student student = new Student();
+    public void deleteStudent(Student student) {
+
         try {
             Connection connection = DBConnection.getConnection();
             if (connection != null) {
                 System.out.println("Conection succesfull");
                 Statement st = null;
-                String query = "SELECT * FROM db16442932.Students WHERE studentCode=" + "'" + studentCode + "'";
+                String query = "DELETE FROM db16442932.Students WHERE studentCode=" + "'" + student.studentCode + "'"+"AND staff_idstaff="+ "'" + student.staff_idstaff+ "'" ;
                 st = (Statement) connection.createStatement();
-                ResultSet resultSet = st.executeQuery(query);
 
-                if (resultSet.next()) {
-                    student.setName(resultSet.getString("studentName"));
-                    student.setSurName(resultSet.getString("studentSurname"));
-                    student.setAddress(resultSet.getString("address"));
-                    student.setPostCode(resultSet.getString("postCode"));
-                    student.setMobileNumber(resultSet.getString("mobileNumber"));
-                    student.setCourseName(resultSet.getString("courseName"));
-                    student.setEnrollmentYear(resultSet.getString("enrollYear"));
-                    student.setCourseFees(resultSet.getString("courseFees"));
-                    student.setDissertationTitle(resultSet.getString("dissertationTitle"));
-                    student.setSupervisorName(resultSet.getString("supervisorName"));
-                    student.setStaff_idstaff(resultSet.getString("staff_idstaff"));
+                st.executeUpdate(query);
+                st.close();
+                connection.close();
 
-                    //student=new Student(studentCode,name,surName,address,postCode,mobileNumber,courseFees,enrollmentYear,courseFees,dissertationTitle,supervisorName,staff_idstaff);
-                    return student;
-                }else{
-                    System.out.println("Empty response");
+                System.out.println("Student :"+ student.studentCode+", has been deleted Successfully");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Connection Exception :"+e.getMessage());
+        }
+    }
+
+    /**
+     Update student information based on StudentCode //UPDATE `db16442932`.`Students` SET `studentName`='Narisarana', `studentSurname`='Boait', `mobileNumber`='085555555' WHERE `idStudents`='18' and`staff_idstaff`='9999';
+
+     */
+    public void updateStudentRecords(Student student) {
+        try {
+            Connection connection = DBConnection.getConnection();
+            if (connection != null) {
+                System.out.println("Conection succesfull");
+                Statement st = null;
+                String query = "UPDATE db16442932.Students SET studentName="+"'"+student.getName() + "',"+
+                "studentSurname="+"'"+student.getSurName() + "',"+
+                        "address="+"'"+student.getAddress() + "'," +
+                        "postCode="+"'"+student.getPostCode() + "',"+
+                        "mobileNumber="+"'"+student.getMobileNumber() + "',"+
+                        "courseName="+"'"+student.getCourseName() + "',"+
+                        "enrollYear="+"'"+student.getEnrollmentYear() + "',"+
+                        "courseFees="+"'"+student.getCourseFees() + "'," +
+                        "supervisorName="+"'"+student.getSupervisorName() + "'" +
+                        "staff_idStaff="+"'"+student.getStaff_idstaff() + "'" +
+                        "doubleMarkerID="+"'"+student.getDoubleMarkerID() + "'" +
+                        " WHERE idStudents=" + "'" + student.getIdStudent() + "'"+
+                        "AND staff_idstaff="+ "'" + student.getStaff_idstaff()+ "'" ;
+
+                System.out.println("Final Query:"+ query);
+                st = (Statement) connection.createStatement();
+                st.executeUpdate(query);
+                st.close();
+                connection.close();
+                System.out.println("Student :"+student.getName()+",Code:"+ student.getStudentCode()+"has been Updated Successfully");
+                if (student.getStaff_idstaff()!=null){
+                    Supervisor supervisor=new Supervisor();
+                    supervisor.updateSaffStatus(Integer.parseInt(student.getStaff_idstaff()),1);
+                    System.out.println("Update Supervisor status : TRUE (1)");
+                }else if (student.getDoubleMarkerID()!=null){
+                    System.out.println("Update DMR status : TRUE (1)");
                 }
             }
 
         } catch (Exception e) {
             System.out.println("Connection Exception :"+e.getMessage());
         }
-        return student;
     }
+
 
 }

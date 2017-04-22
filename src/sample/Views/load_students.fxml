@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #3c3f41;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller.LoadStudentController">
+    <children>
+        <ImageView fitHeight="51.0" fitWidth="227.0" layoutX="37.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../Resources/northantsLogo.png" />
+            </image>
+        </ImageView>
+        <JFXButton fx:id="loadFile" buttonType="RAISED" layoutX="101.0" layoutY="277.0" onAction="#loadFileEvent" prefHeight="25.0" prefWidth="100.0" ripplerFill="#ebddc8" styleClass="foenixButton" stylesheets="@../Resources/uiStyle.css" text="Load File" textFill="#eb9f07" />
+        <JFXButton fx:id="exitButton" buttonType="RAISED" layoutX="100.0" layoutY="328.0" onAction="#exitEvent" prefHeight="25.0" prefWidth="100.0" ripplerFill="#ebddc8" styleClass="foenixButton" stylesheets="@../Resources/uiStyle.css" text="EXIT" textFill="#eb9f07" />
+        <Text fill="#616161" layoutX="138.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="v 1.0" />
+      <ImageView fitHeight="85.0" fitWidth="100.0" layoutX="108.0" layoutY="158.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Resources/xlsFile.png" />
+         </image>
+      </ImageView>
+    </children>
+</Pane>
