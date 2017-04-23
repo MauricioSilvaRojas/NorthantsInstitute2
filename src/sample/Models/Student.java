@@ -2,6 +2,8 @@ package sample.Models;
 
 import com.mysql.jdbc.PreparedStatement;
 import com.mysql.jdbc.Statement;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -210,13 +212,14 @@ public class Student {
                     student.setAddress(resultSet.getString("address"));
                     student.setPostCode(resultSet.getString("postCode"));
                     student.setMobileNumber(resultSet.getString("mobileNumber"));
+                    student.setEmail(resultSet.getString("studentEmail"));
                     student.setCourseName(resultSet.getString("courseName"));
                     student.setEnrollmentYear(resultSet.getString("enrollYear"));
                     student.setCourseFees(resultSet.getString("courseFees"));
                     student.setDissertationTitle(resultSet.getString("dissertationTitle"));
                     student.setSupervisorName(resultSet.getString("supervisorName"));
                     student.setStaff_idstaff(resultSet.getString("staff_idstaff"));
-                    student.setDoubleMarkerID(resultSet.getString("doubleMakerID"));
+                    student.setDoubleMarkerID(resultSet.getString("doubleMarkerID"));
 
                     //student=new Student(studentCode,name,surName,address,postCode,mobileNumber,courseFees,enrollmentYear,courseFees,dissertationTitle,supervisorName,staff_idstaff);
                     return student;
@@ -235,8 +238,10 @@ public class Student {
     /**
     * Return a List<student> object with all enrrolled students
     * */
-    public List<Student> getAllStudents(){
+    public ObservableList<Student> getAllStudents(){
         List<Student> fullList = new ArrayList<Student>();
+        ObservableList<Student> olS=FXCollections.observableList(fullList);
+
         try {
             Connection connection = DBConnection.getConnection();
             if (connection != null) {
@@ -256,12 +261,13 @@ public class Student {
                     student.setPostCode(resultSet.getString("postCode"));
                     student.setMobileNumber(resultSet.getString("mobileNumber"));
                     student.setCourseName(resultSet.getString("courseName"));
+                    student.setEmail(resultSet.getString("studentEmail"));
                     student.setEnrollmentYear(resultSet.getString("enrollYear"));
                     student.setCourseFees(resultSet.getString("courseFees"));
                     student.setDissertationTitle(resultSet.getString("dissertationTitle"));
                     student.setSupervisorName(resultSet.getString("supervisorName"));
                     student.setStaff_idstaff(resultSet.getString("staff_idstaff"));
-                    student.setDoubleMarkerID(resultSet.getString("doubleMakerID"));
+                    student.setDoubleMarkerID(resultSet.getString("doubleMarkerID"));
 
                     fullList.add(n,student);
                     System.out.println("New Student Added:" + fullList.get(n).getName());
@@ -270,13 +276,14 @@ public class Student {
 
                 }
                 connection.close();
-                return fullList;
+
+                return olS;
             }
 
         } catch (Exception e) {
             System.out.println("Connection Exception :"+e.getMessage());
         }
-        return fullList;
+        return olS;
     }
 
     /**

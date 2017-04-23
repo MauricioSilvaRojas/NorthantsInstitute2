@@ -38,7 +38,7 @@ public class StartingController {
 
     @FXML
     void loadVivaEvent(ActionEvent event) throws IOException {
-        WindowDispatcher wd=new WindowDispatcher("../Views/dashboard.fxml");
+        WindowDispatcher wd=new WindowDispatcher("../Views/dash.fxml");
         try {
             wd.windowSelector(wd.getLocation());
         } catch (IOException e) {
