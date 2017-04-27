@@ -361,24 +361,26 @@ public class Student {
 
      */
     public void updateStudentRecords(Student student) {
+        Student preStudent = student.reviewStudent(student.getStudentCode());
+
         try {
             Connection connection = DBConnection.getConnection();
             if (connection != null) {
                 System.out.println("Conection succesfull");
                 Statement st = null;
                 String query = "UPDATE db16442932.Students SET studentName="+"'"+student.getName() + "',"+
-                "studentSurname="+"'"+student.getSurName() + "',"+
+                        "studentSurname="+"'"+student.getSurName() + "',"+
                         "address="+"'"+student.getAddress() + "'," +
                         "postCode="+"'"+student.getPostCode() + "',"+
                         "mobileNumber="+"'"+student.getMobileNumber() + "',"+
                         "courseName="+"'"+student.getCourseName() + "',"+
                         "enrollYear="+"'"+student.getEnrollmentYear() + "',"+
                         "courseFees="+"'"+student.getCourseFees() + "'," +
-                        "supervisorName="+"'"+student.getSupervisorName() + "'" +
+                        "supervisorName="+"'"+student.getSupervisorName() + "'," +
                         "staff_idStaff="+"'"+student.getStaff_idstaff() + "'" +
-                        "doubleMarkerID="+"'"+student.getDoubleMarkerID() + "'" +
-                        " WHERE idStudents=" + "'" + student.getIdStudent() + "'"+
-                        "AND staff_idstaff="+ "'" + student.getStaff_idstaff()+ "'" ;
+                        //"doubleMarkerID="+"'"+student.getDoubleMarkerID() + "'" +
+                        " WHERE studentCode=" + "'" + student.getStudentCode() + "'"+
+                        "AND staff_idstaff="+ "'" + preStudent.getStaff_idstaff()+ "'" ;
 
                 System.out.println("Final Query:"+ query);
                 st = (Statement) connection.createStatement();
@@ -388,7 +390,7 @@ public class Student {
                 System.out.println("Student :"+student.getName()+",Code:"+ student.getStudentCode()+"has been Updated Successfully");
                 if (student.getStaff_idstaff()!=null){
                     Supervisor supervisor=new Supervisor();
-                    supervisor.updateSaffStatus(Integer.parseInt(student.getStaff_idstaff()),1);
+                    supervisor.updateSaffStatus(Integer.parseInt(student.getStaff_idstaff()),"True");
                     System.out.println("Update Supervisor status : TRUE (1)");
                 }else if (student.getDoubleMarkerID()!=null){
                     System.out.println("Update DMR status : TRUE (1)");

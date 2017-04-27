@@ -22,6 +22,8 @@ public class Staff {
     private List<Skill> skillList = new ArrayList<Skill>();
     private String contractType;
     private Map<String, String> availabilityDays;
+    private String supervisorStatus;
+
 
 
     public Staff() {
@@ -109,14 +111,19 @@ public class Staff {
         this.email = email;
     }
 
+    public String getSupervisorStatus() {
+        return supervisorStatus;
+    }
+
+    public void setSupervisorStatus(String supervisorStatus) {
+        this.supervisorStatus = supervisorStatus;
+    }
+
     /**
      * Create New Staff in DB //INSERT INTO `db16442932`.`staff` (`idstaff`, `staffName`, `staffSurname`, `staffCode`, `contractType`) VALUES ('3', 'Eric', 'Clapton', '654654654', 'part Time');
 
      * */
-    public void createNewStaff(String staffCode, String name, String surName){
-
-        Staff staff = new Staff(staffCode, name,  surName);
-
+    public void createNewStaff(Staff staff){
         try {
             Connection connection = DBConnection.getConnection();
             if (connection != null) {
@@ -165,6 +172,7 @@ public class Staff {
                     staff.setSurName(resultSet.getString("staffSurname"));
                     staff.setEmail(resultSet.getString("email"));
                     staff.setContractType(resultSet.getString("contractType"));
+                    staff.setSupervisorStatus(resultSet.getString("supervisorStatus"));
                     //staff.setAvailabilityDays(resultSet.getString("courseName"));
 
                     fullList.add(n,staff);
@@ -182,6 +190,123 @@ public class Staff {
         }
         return fullList;
     }
+
+    /**
+     * Return a Staff object
+     * */
+    public Staff reviewStaff(String surName){
+        Staff staff = new Staff();
+        try {
+            Connection connection = DBConnection.getConnection();
+            if (connection != null) {
+                System.out.println("Connection successful");
+                Statement st = null;
+                String query = "SELECT * FROM db16442932.Staff WHERE staffSurname="+ "'"+surName+"'";
+                st = (Statement) connection.createStatement();
+                ResultSet resultSet = st.executeQuery(query);
+                int n=0;
+
+                while (resultSet.next()) {
+                   // Staff staff = new Staff();
+                    staff.setIdSTaff(resultSet.getInt("idStaff"));
+                    staff.setStaffCode(resultSet.getString("staffCode"));
+                    staff.setName(resultSet.getString("staffName"));
+                    staff.setSurName(resultSet.getString("staffSurname"));
+                    staff.setEmail(resultSet.getString("email"));
+                    staff.setContractType(resultSet.getString("contractType"));
+                    staff.setSupervisorStatus(resultSet.getString("supervisorStatus"));
+                    //staff.setAvailabilityDays(resultSet.getString("courseName"));
+
+
+                    System.out.println("New Student Added:" + staff.getIdSTaff());
+
+                }
+                connection.close();
+                return staff;
+            }
+
+        } catch (Exception e) {
+            System.out.println("Connection Exception :"+e.getMessage());
+        }
+        return staff;
+    }
+
+    /**
+     Update Staff status as Supervisor
+
+     */
+    public void updateSupervisorStatus(List<Student> studentList) {
+        Supervisor supervisor=new Supervisor();
+
+        for (Student s:studentList) {
+            if ((s.getStaff_idstaff()!=null)&&(!s.getStaff_idstaff().equals("9999"))){
+                supervisor=new Supervisor();
+                supervisor.updateSaffStatus(Integer.parseInt(s.getStaff_idstaff()),"True");
+                System.out.println("Update Supervisor status : TRUE (1)");
+            }if(s.getStaff_idstaff().equals("9999"))
+            {
+                supervisor=new Supervisor();
+                supervisor.updateSaffStatus(9999,"False");
+            }
+        }
+    }
+
+    /**
+     Delete Staff information based on StaffID
+     */
+    public void deleteStaff(Staff staff) {
+
+        try {
+            Connection connection = DBConnection.getConnection();
+            if (connection != null) {
+                System.out.println("Conection succesfull");
+                Statement st = null;
+                String query = "DELETE FROM db16442932.Staff WHERE idStaff=" + "'" + staff.getIdSTaff()+ "'" ;
+                st = (Statement) connection.createStatement();
+
+                st.executeUpdate(query);
+                st.close();
+                connection.close();
+
+                System.out.println("Student :"+ staff.getSurName()+", has been deleted Successfully");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Connection Exception :"+e.getMessage());
+        }
+    }
+
+    /**
+     Update Staff information based on StaffCode
+     */
+    public void updateStaffRecords(Staff staff) {
+        try {
+            Connection connection = DBConnection.getConnection();
+            if (connection != null) {
+                System.out.println("Conection succesfull");
+                Statement st = null;
+                String query = "UPDATE db16442932.Staff SET staffName="+"'"+staff.getName() + "',"+
+                        "staffSurname="+"'"+staff.getSurName() + "',"+
+                        "StaffCode="+"'"+staff.getStaffCode() + "'," +
+                        "contractType="+"'"+staff.getContractType() + "',"+
+                        "email="+"'"+staff.getEmail() + "'"+
+                        " WHERE idstaff=" + "'" + staff.getIdSTaff()+ "'" ;
+
+                System.out.println("Final Query:"+ query);
+                st = (Statement) connection.createStatement();
+                st.executeUpdate(query);
+                st.close();
+                connection.close();
+                System.out.println("Staff :"+staff.getName()+",Code:"+ staff.getStaffCode()+"has been Updated Successfully");
+
+            }
+
+        } catch (Exception e) {
+            System.out.println("Connection Exception :"+e.getMessage());
+        }
+    }
+
+
 
 
 

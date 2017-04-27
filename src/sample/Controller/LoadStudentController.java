@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import sample.Models.WindowDispatcher;
 import sample.Models.XlsReader;
 
 import java.io.File;
@@ -37,6 +38,12 @@ public class LoadStudentController {
         XlsReader rf= new XlsReader(path);
         rf.getStudentList();
 
+        WindowDispatcher wd=new WindowDispatcher("../Views/dash.fxml");
+        try {
+            wd.windowSelector(wd.getLocation());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 

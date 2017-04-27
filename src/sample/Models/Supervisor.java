@@ -14,15 +14,15 @@ import java.util.Map;
  * Created by regga on 16/04/2017.
  */
 public class Supervisor extends Staff {
-    private Boolean supervisorStatus;
+   // private Boolean supervisorStatus;
 
-    public Boolean getSupervisorStatus() {
+    /*public Boolean getSupervisorStatus() {
         return supervisorStatus;
-    }
+    }*/
 
-    public void setSupervisorStatus(Boolean supervisorStatus) {
+ /*   public void setSupervisorStatus(Boolean supervisorStatus) {
         this.supervisorStatus = supervisorStatus;
-    }
+    }*/
 
     public Supervisor(){
 
@@ -44,7 +44,7 @@ public class Supervisor extends Staff {
                 if (connection != null) {
                     System.out.println("Conection succesfull");
                     Statement st = null;
-                    String query = "SELECT * FROM db16442932.Students WHERE idStaff="+"''"+idstaff+"''";
+                    String query = "SELECT * FROM db16442932.Students WHERE staff_idStaff="+"'"+idstaff+"'";
                     st = (Statement) connection.createStatement();
                     ResultSet resultSet = st.executeQuery(query);
                     int n=0;
@@ -97,7 +97,7 @@ public class Supervisor extends Staff {
             if (connection != null) {
                 System.out.println("Connection succesfull");
                 Statement st = null;
-                String query = "SELECT * FROM db16442932.Staff WHERE supervisorStatus="+"''"+true+"''";
+                String query = "SELECT * FROM db16442932.Staff WHERE supervisorStatus="+"'"+"True"+"'";
                 st = (Statement) connection.createStatement();
                 ResultSet resultSet = st.executeQuery(query);
                 int n=0;
@@ -110,6 +110,7 @@ public class Supervisor extends Staff {
                     superV.setSurName(resultSet.getString("staffSurname"));
                     superV.setEmail(resultSet.getString("email"));
                     superV.setContractType(resultSet.getString("contractType"));
+                    superV.setSupervisorStatus(resultSet.getString("supervisorStatus"));
 
                     fullList.add(n,superV);
                     System.out.println("New Student item Added:" + fullList.get(n).getName());
@@ -129,14 +130,14 @@ public class Supervisor extends Staff {
      Update student information based on StudentCode //UPDATE `db16442932`.`Students` SET `studentName`='Narisarana', `studentSurname`='Boait', `mobileNumber`='085555555' WHERE `idStudents`='18' and`staff_idstaff`='9999';
 
      */
-    public void updateSaffStatus(int staffID,int status) {
+    public void updateSaffStatus(int staffID,String status) {
         try {
             Connection connection = DBConnection.getConnection();
             if (connection != null) {
                 System.out.println("Conection succesfull");
                 Statement st = null;
-                String query = "UPDATE db16442932.Staff SET supervisorStatus="+"'"+status + "',"+
-                        " WHERE staff_idstaff=" + "'" + staffID + "'";
+                String query = "UPDATE db16442932.Staff SET supervisorStatus="+"'"+status + "'"+
+                        " WHERE idstaff=" + "'" + staffID + "'";
                 System.out.println("Final Query:"+ query);
                 st = (Statement) connection.createStatement();
                 st.executeUpdate(query);
