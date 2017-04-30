@@ -388,21 +388,29 @@ public class DashController {
     @FXML
     private JFXButton updateRoomSelection;
 
+
+    /**
+     * Initialize the preliminary fucntions.
+     * */
     public void initialize() {
         Supervisor sv= new Supervisor();
         System.out.println("starting Dashboard");
         this.setupColumnNames();
         this.loadStudentList();
         this.loadStaffList();
-       //this.checkSupervisor();
+        //this.checkSupervisor();
         this.overallFields();
-        VivaSession vivaSession=new VivaSession();
-        for (Room room :room.getAllRooms()) {
+        //VivaSession vivaSession=new VivaSession();
+
+        selectedStudent=selectedStudent.reviewStudent("11.0");
+
+        /** Reset all room slots to null * */
+        /*for (Room room :room.getAllRooms()) {
             room.resetSlots(room);
             room.updateRoomInfo(room);
-        }
+        }*/
 
-        vivaSession.generateVivaSessions(sv.getAllSupervisors());
+       // vivaSession.generateVivaSessions(sv.getAllSupervisors());
 
 
         /**
@@ -527,7 +535,12 @@ public class DashController {
          * Delete All Student Fields
          * */
         deleteAllStudentMenu.setOnAction((event) ->{
-            // not implemented
+            for (Student student : selectedStudent.getAllStudents()) {
+                student.deleteStudent(student);
+                studentsList=null;
+                loadStudentList();
+
+            }
             System.out.println("Deleting all students");
         });
 

@@ -1,4 +1,4 @@
-package sample.Models;
+package sample.Recycled;
 
 /**
  * Created by regga on 16/04/2017.

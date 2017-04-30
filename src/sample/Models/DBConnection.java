@@ -1,13 +1,13 @@
 package sample.Models;
 
-import com.mysql.jdbc.Statement;
-import com.sun.org.apache.bcel.internal.generic.RETURN;
+        import com.mysql.jdbc.Statement;
+        import com.sun.org.apache.bcel.internal.generic.RETURN;
 
-import java.sql.Connection;
+        import java.sql.Connection;
 
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+        import java.sql.DriverManager;
+        import java.sql.PreparedStatement;
+        import java.sql.ResultSet;
 
 /**
  * Created by regga on 12/12/2016.
@@ -16,11 +16,12 @@ import java.sql.ResultSet;
 public class DBConnection {
     public static  final String JDBC_driver = "com.mysql.jdbc.Driver";
     public static  final String JDBC_url="jdbc:mysql://194.81.104.22:3306/db16442932" ;
-   // public static  final String JDBC_dbName="db16442932" ;
     public static  final String JDBC_user = "s16442932";
     public static  final String JDBC_password = "16442932";
 
-
+    /**
+     * Create a JDBC connection to connect to the DB
+     * */
     public static Connection getConnection (){
         Connection connection = null;
         try{

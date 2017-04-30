@@ -26,6 +26,9 @@ public class LoadStudentController {
     @FXML
     private JFXButton loadFile;
 
+    /**
+     * Event for import XLS file
+     * */
     @FXML
     void loadFileEvent(ActionEvent event) throws IOException {
         FileChooser fileChooser = new FileChooser();

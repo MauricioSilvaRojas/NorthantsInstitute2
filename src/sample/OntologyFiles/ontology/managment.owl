@@ -1,0 +1,352 @@
+[ {
+  "@id" : "_:genid1",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
+  "http://www.w3.org/2002/07/owl#members" : [ {
+    "@list" : [ {
+      "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Assignments"
+    }, {
+      "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Exams"
+    }, {
+      "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#VivaSession"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid11",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
+  "http://www.w3.org/2002/07/owl#members" : [ {
+    "@list" : [ {
+      "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#BachelorDegree"
+    }, {
+      "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Hnd"
+    }, {
+      "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#MastersDegree"
+    }, {
+      "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#PHD"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid16",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
+  "http://www.w3.org/2002/07/owl#members" : [ {
+    "@list" : [ {
+      "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Examination"
+    }, {
+      "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Graduation"
+    }, {
+      "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Lectures"
+    }, {
+      "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Modules"
+    }, {
+      "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Person"
+    }, {
+      "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Rooms"
+    }, {
+      "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Timetable"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid24",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
+  "http://www.w3.org/2002/07/owl#members" : [ {
+    "@list" : [ {
+      "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Year1"
+    }, {
+      "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Year2"
+    }, {
+      "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Year3"
+    } ]
+  } ]
+}, {
+  "@id" : "_:genid5",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AllDisjointClasses" ],
+  "http://www.w3.org/2002/07/owl#members" : [ {
+    "@list" : [ {
+      "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Assosiate"
+    }, {
+      "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#EntryLevel"
+    }, {
+      "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Junior"
+    }, {
+      "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Senior"
+    }, {
+      "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#TeacherAssistant"
+    } ]
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "Semkantic Charactersisitcs of a course mangmnet System"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Administrators",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Staff"
+  } ],
+  "http://www.w3.org/2002/07/owl#disjointWith" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Lecturer"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Assignments",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Examination"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Assosiate",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Lecturer"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#BachelorDegree",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Students"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Contracts",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Organization"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#EntryLevel",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Lecturer"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Examination",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Organization"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Exams",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Examination"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#FillTime",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Contracts"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Graduation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Organization"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Hnd",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Students"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Junior",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Lecturer"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Lecturer",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Staff"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Lectures",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Organization"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#MastersDegree",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Students"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Modules",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Organization"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Organization",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#PHD",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Students"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#PartTime",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Contracts"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Person",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Organization"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Rooms",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Organization"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Senior",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Lecturer"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Staff",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Person"
+  } ],
+  "http://www.w3.org/2002/07/owl#disjointWith" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Students"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Students",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Person"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#TeacherAssistant",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Lecturer"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Timetable",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Organization"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#VivaSession",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Examination"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Year1",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#BachelorDegree"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Year2",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#BachelorDegree"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Year3",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#BachelorDegree"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#assist",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#TeacherAssistant"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Assosiate"
+  }, {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#EntryLevel"
+  }, {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Junior"
+  }, {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Senior"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#attends",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#BachelorDegree"
+  }, {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Hnd"
+  }, {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#MastersDegree"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Modules"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#has_supervisor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#MastersDegree"
+  }, {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#PHD"
+  }, {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Year3"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Lectures"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#has_tutors",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#BachelorDegree"
+  }, {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Hnd"
+  }, {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#MastersDegree"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Assosiate"
+  }, {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Senior"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#is_enrolled",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Students"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Modules"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#is_evaluated_by",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#BachelorDegree"
+  }, {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Hnd"
+  }, {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#MastersDegree"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Examination"
+  } ]
+}, {
+  "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#teaches",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Lecturer"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#range" : [ {
+    "@id" : "http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#Modules"
+  } ]
+} ]

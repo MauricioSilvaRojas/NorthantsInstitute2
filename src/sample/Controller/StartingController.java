@@ -26,6 +26,9 @@ public class StartingController {
     @FXML
     private JFXButton exitButton;
 
+    /**
+     * Load the import file View
+     * */
     @FXML
     void newVIVAEvent(ActionEvent event) throws IOException {
         WindowDispatcher wd=new WindowDispatcher("../Views/load_students.fxml");
@@ -36,6 +39,9 @@ public class StartingController {
         }
     }
 
+    /**
+     * Lead the new View : Dashboard
+     * */
     @FXML
     void loadVivaEvent(ActionEvent event) throws IOException {
         WindowDispatcher wd=new WindowDispatcher("../Views/dash.fxml");
@@ -46,6 +52,9 @@ public class StartingController {
         }
     }
 
+    /**
+    * Closing the current Window
+     * */
     @FXML
     void exitEvent(ActionEvent event) {
         try {

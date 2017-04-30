@@ -66,6 +66,14 @@ public class Room {
         this.sessionDate = sessionDate;
     }
 
+    public Boolean getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(Boolean availability) {
+        this.availability = availability;
+    }
+
 
 
 
@@ -141,53 +149,60 @@ public class Room {
     public String isBooked(Room room,int slot ){
         String response;
         Map<String, String> items = room.getSlot();
-
-
         switch (slot) {
             case 1:
                 response =items.get("Slot_1");
                 System.out.println("Slot_"+slot+", ,status : "+response);
+                break;
 
-                return  response;
 
             case 2:
                 response =items.get("Slot_2");
                 System.out.println("Slot_"+slot+", ,status : "+response);
-                return  response;
+                break;
+
 
             case 3:
                 response =items.get("Slot_3");
                 System.out.println("Slot_"+slot+", ,status : "+response);
-                return  response;
+                break;
+
 
             case 4:
                 response =items.get("Slot_4");
                 System.out.println("Slot_"+slot+", ,status : "+response);
-                return  response;
+                break;
+
 
             case 5:
                 response =items.get("Slot_5");
                 System.out.println("Slot_"+slot+", ,status : "+response);
-                return  response;
+                break;
+
 
             case 6:
                 response =items.get("Slot_6");
                 System.out.println("Slot_"+slot+", ,status : "+response);
-                return  response;
+                break;
+
+
 
             case 7:
                 response =items.get("Slot_7");
                 System.out.println("Slot_"+slot+", ,status : "+response);
-                return  response;
+                break;
+
 
             case 8:
                 response =items.get("Slot_8");
                 System.out.println("Slot_"+slot+", ,status : "+response);
-                return  response;
+                break;
+
 
             default:
                 throw new IllegalArgumentException("Invalid Slot  " + slot);
         }
+        return response;
     }
 
 
@@ -219,6 +234,7 @@ public class Room {
         {
             System.out.println("Connection Exception :" +e.getMessage());
         }
+
     }
 
     /**
@@ -494,11 +510,5 @@ public class Room {
         return null;
     }
 
-    public Boolean getAvailability() {
-        return availability;
-    }
 
-    public void setAvailability(Boolean availability) {
-        this.availability = availability;
-    }
 }

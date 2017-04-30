@@ -34,6 +34,10 @@ public class WindowDispatcher {
         this.location = location;
     }
 
+    /**
+     * Windows selector method of Windows Dispacther Clases, provides the fucntionaly for start a new view
+     * */
+
     public void windowSelector(String location) throws IOException {
         try {
             Parent parent = (Parent)FXMLLoader.load(this.getClass().getResource(location));

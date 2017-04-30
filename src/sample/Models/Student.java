@@ -65,6 +65,12 @@ public class Student {
     public Student() {
     }
 
+    public Student(String studentCode, String name, String surName) {
+        this.studentCode = studentCode;
+        this.name = name;
+        this.surName = surName;
+    }
+
     public int getIdStudent() {
         return idStudent;
     }
@@ -194,16 +200,17 @@ public class Student {
     /**
     Retrieve student information based on StudentCode
      */
-    public Student reviewStudent(String studentCode) {
+    public Student reviewStudent(String idStudents) {
         Student student = new Student();
         try {
             Connection connection = DBConnection.getConnection();
             if (connection != null) {
                 System.out.println("Conection succesfull");
                 Statement st = null;
-                String query = "SELECT * FROM db16442932.Students WHERE studentCode=" + "'" + studentCode + "'";
+                String query = "SELECT * FROM db16442932.Students WHERE idStudents=" + "'" + idStudents + "'";
                 st = (Statement) connection.createStatement();
                 ResultSet resultSet = st.executeQuery(query);
+                System.out.println("final Query: "+ query);
 
                 if (resultSet.next()) {
                     student.setIdStudent(resultSet.getInt("idStudents"));
@@ -341,7 +348,7 @@ public class Student {
             if (connection != null) {
                 System.out.println("Conection succesfull");
                 Statement st = null;
-                String query = "DELETE FROM db16442932.Students WHERE studentCode=" + "'" + student.studentCode + "'"+"AND staff_idstaff="+ "'" + student.staff_idstaff+ "'" ;
+                String query = "DELETE FROM db16442932.Students WHERE idStudents=" + "'" + student.getIdStudent() + "'"+"AND staff_idstaff="+ "'" + student.staff_idstaff+ "'" ;
                 st = (Statement) connection.createStatement();
 
                 st.executeUpdate(query);
@@ -357,11 +364,12 @@ public class Student {
     }
 
     /**
-     Update student information based on StudentCode //UPDATE `db16442932`.`Students` SET `studentName`='Narisarana', `studentSurname`='Boait', `mobileNumber`='085555555' WHERE `idStudents`='18' and`staff_idstaff`='9999';
+     Update student information based on StudentCode // Sample :UPDATE `db16442932`.`Students` SET `studentName`='Narisarana', `studentSurname`='Boait', `mobileNumber`='085555555' WHERE `idStudents`='18' and`staff_idstaff`='9999';
 
      */
     public void updateStudentRecords(Student student) {
-        Student preStudent = student.reviewStudent(student.getStudentCode());
+        Student preStudent = new Student();
+                preStudent=student.reviewStudent(String.valueOf(student.getIdStudent()));
 
         try {
             Connection connection = DBConnection.getConnection();
@@ -379,7 +387,7 @@ public class Student {
                         "supervisorName="+"'"+student.getSupervisorName() + "'," +
                         "staff_idStaff="+"'"+student.getStaff_idstaff() + "'" +
                         //"doubleMarkerID="+"'"+student.getDoubleMarkerID() + "'" +
-                        " WHERE studentCode=" + "'" + student.getStudentCode() + "'"+
+                        " WHERE idStudents=" + "'" + student.getIdStudent() + "'"+
                         "AND staff_idstaff="+ "'" + preStudent.getStaff_idstaff()+ "'" ;
 
                 System.out.println("Final Query:"+ query);
@@ -401,6 +409,8 @@ public class Student {
             System.out.println("Connection Exception :"+e.getMessage());
         }
     }
+
+
 
 
 }

@@ -23,25 +23,23 @@ public class XlsReader {
         this.path = path;
     }
 
+    /***
+     * Map the rows in instances of the Student Class
+     * */
+
     public List<Student> getStudentList() throws IOException {
         HSSFWorkbook workbook = new HSSFWorkbook(new FileInputStream(path));
         HSSFSheet sheet = workbook.getSheetAt(0);
         HSSFRow row=sheet.getRow(0);
         String result=row.getCell(0).toString();
         System.out.println("Read from file row :"+result);
-        FormulaEvaluator formulaEvaluator=workbook.getCreationHelper().createFormulaEvaluator();
-
-        int n=0;
-
 
         for (Row row1:sheet){
             Student student=new Student();
-
             for(Cell cell: row1)
             {
-
                 result= row1.getCell(cell.getColumnIndex()).toString();
-                //System.out.println("Read from file row :"+result);
+
                 switch (cell.getColumnIndex()){
                     case 0:
                         student.setStudentCode(result);

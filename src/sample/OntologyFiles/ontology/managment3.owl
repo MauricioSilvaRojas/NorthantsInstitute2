@@ -1,0 +1,230 @@
+Prefix(:=<http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem#>)
+Prefix(owl:=<http://www.w3.org/2002/07/owl#>)
+Prefix(rdf:=<http://www.w3.org/1999/02/22-rdf-syntax-ns#>)
+Prefix(xml:=<http://www.w3.org/XML/1998/namespace>)
+Prefix(xsd:=<http://www.w3.org/2001/XMLSchema#>)
+Prefix(rdfs:=<http://www.w3.org/2000/01/rdf-schema#>)
+
+
+Ontology(<http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem>
+Annotation(rdfs:comment "Semkantic Charactersisitcs of a course mangmnet System"@en)
+
+Declaration(Class(:Administrators))
+Declaration(Class(:Assignments))
+Declaration(Class(:Assosiate))
+Declaration(Class(:BachelorDegree))
+Declaration(Class(:Contracts))
+Declaration(Class(:EntryLevel))
+Declaration(Class(:Examination))
+Declaration(Class(:Exams))
+Declaration(Class(:FillTime))
+Declaration(Class(:Graduation))
+Declaration(Class(:Hnd))
+Declaration(Class(:Junior))
+Declaration(Class(:Lecturer))
+Declaration(Class(:Lectures))
+Declaration(Class(:MastersDegree))
+Declaration(Class(:Modules))
+Declaration(Class(:Organization))
+Declaration(Class(:PHD))
+Declaration(Class(:PartTime))
+Declaration(Class(:Person))
+Declaration(Class(:Rooms))
+Declaration(Class(:Senior))
+Declaration(Class(:Staff))
+Declaration(Class(:Students))
+Declaration(Class(:TeacherAssistant))
+Declaration(Class(:Timetable))
+Declaration(Class(:VivaSession))
+Declaration(Class(:Year1))
+Declaration(Class(:Year2))
+Declaration(Class(:Year3))
+Declaration(ObjectProperty(:assist))
+Declaration(ObjectProperty(:attends))
+Declaration(ObjectProperty(:has_supervisor))
+Declaration(ObjectProperty(:has_tutors))
+Declaration(ObjectProperty(:is_enrolled))
+Declaration(ObjectProperty(:is_evaluated_by))
+Declaration(ObjectProperty(:teaches))
+
+############################
+#   Object Properties
+############################
+
+# Object Property: :assist (:assist)
+
+ObjectPropertyDomain(:assist :TeacherAssistant)
+ObjectPropertyRange(:assist :Assosiate)
+ObjectPropertyRange(:assist :EntryLevel)
+ObjectPropertyRange(:assist :Junior)
+ObjectPropertyRange(:assist :Senior)
+
+# Object Property: :attends (:attends)
+
+ObjectPropertyDomain(:attends :BachelorDegree)
+ObjectPropertyDomain(:attends :Hnd)
+ObjectPropertyDomain(:attends :MastersDegree)
+ObjectPropertyRange(:attends :Modules)
+
+# Object Property: :has_supervisor (:has_supervisor)
+
+ObjectPropertyDomain(:has_supervisor :MastersDegree)
+ObjectPropertyDomain(:has_supervisor :PHD)
+ObjectPropertyDomain(:has_supervisor :Year3)
+ObjectPropertyRange(:has_supervisor :Lectures)
+
+# Object Property: :has_tutors (:has_tutors)
+
+ObjectPropertyDomain(:has_tutors :BachelorDegree)
+ObjectPropertyDomain(:has_tutors :Hnd)
+ObjectPropertyDomain(:has_tutors :MastersDegree)
+ObjectPropertyRange(:has_tutors :Assosiate)
+ObjectPropertyRange(:has_tutors :Senior)
+
+# Object Property: :is_enrolled (:is_enrolled)
+
+ObjectPropertyDomain(:is_enrolled :Students)
+ObjectPropertyRange(:is_enrolled :Modules)
+
+# Object Property: :is_evaluated_by (:is_evaluated_by)
+
+ObjectPropertyDomain(:is_evaluated_by :BachelorDegree)
+ObjectPropertyDomain(:is_evaluated_by :Hnd)
+ObjectPropertyDomain(:is_evaluated_by :MastersDegree)
+ObjectPropertyRange(:is_evaluated_by :Examination)
+
+# Object Property: :teaches (:teaches)
+
+ObjectPropertyDomain(:teaches :Lecturer)
+ObjectPropertyRange(:teaches :Modules)
+
+
+############################
+#   Classes
+############################
+
+# Class: :Administrators (:Administrators)
+
+SubClassOf(:Administrators :Staff)
+DisjointClasses(:Administrators :Lecturer)
+
+# Class: :Assignments (:Assignments)
+
+SubClassOf(:Assignments :Examination)
+
+# Class: :Assosiate (:Assosiate)
+
+SubClassOf(:Assosiate :Lecturer)
+
+# Class: :BachelorDegree (:BachelorDegree)
+
+SubClassOf(:BachelorDegree :Students)
+
+# Class: :Contracts (:Contracts)
+
+SubClassOf(:Contracts :Organization)
+
+# Class: :EntryLevel (:EntryLevel)
+
+SubClassOf(:EntryLevel :Lecturer)
+
+# Class: :Examination (:Examination)
+
+SubClassOf(:Examination :Organization)
+
+# Class: :Exams (:Exams)
+
+SubClassOf(:Exams :Examination)
+
+# Class: :FillTime (:FillTime)
+
+SubClassOf(:FillTime :Contracts)
+
+# Class: :Graduation (:Graduation)
+
+SubClassOf(:Graduation :Organization)
+
+# Class: :Hnd (:Hnd)
+
+SubClassOf(:Hnd :Students)
+
+# Class: :Junior (:Junior)
+
+SubClassOf(:Junior :Lecturer)
+
+# Class: :Lecturer (:Lecturer)
+
+SubClassOf(:Lecturer :Staff)
+
+# Class: :Lectures (:Lectures)
+
+SubClassOf(:Lectures :Organization)
+
+# Class: :MastersDegree (:MastersDegree)
+
+SubClassOf(:MastersDegree :Students)
+
+# Class: :Modules (:Modules)
+
+SubClassOf(:Modules :Organization)
+
+# Class: :PHD (:PHD)
+
+SubClassOf(:PHD :Students)
+
+# Class: :PartTime (:PartTime)
+
+SubClassOf(:PartTime :Contracts)
+
+# Class: :Person (:Person)
+
+SubClassOf(:Person :Organization)
+
+# Class: :Rooms (:Rooms)
+
+SubClassOf(:Rooms :Organization)
+
+# Class: :Senior (:Senior)
+
+SubClassOf(:Senior :Lecturer)
+
+# Class: :Staff (:Staff)
+
+SubClassOf(:Staff :Person)
+DisjointClasses(:Staff :Students)
+
+# Class: :Students (:Students)
+
+SubClassOf(:Students :Person)
+
+# Class: :TeacherAssistant (:TeacherAssistant)
+
+SubClassOf(:TeacherAssistant :Lecturer)
+
+# Class: :Timetable (:Timetable)
+
+SubClassOf(:Timetable :Organization)
+
+# Class: :VivaSession (:VivaSession)
+
+SubClassOf(:VivaSession :Examination)
+
+# Class: :Year1 (:Year1)
+
+SubClassOf(:Year1 :BachelorDegree)
+
+# Class: :Year2 (:Year2)
+
+SubClassOf(:Year2 :BachelorDegree)
+
+# Class: :Year3 (:Year3)
+
+SubClassOf(:Year3 :BachelorDegree)
+
+
+DisjointClasses(:Assignments :Exams :VivaSession)
+DisjointClasses(:Assosiate :EntryLevel :Junior :Senior :TeacherAssistant)
+DisjointClasses(:BachelorDegree :Hnd :MastersDegree :PHD)
+DisjointClasses(:Examination :Graduation :Lectures :Modules :Person :Rooms :Timetable)
+DisjointClasses(:Year1 :Year2 :Year3)
+)

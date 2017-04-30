@@ -1,0 +1,394 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/regga/ontologies/2017/3/courseManagmentSystem">
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Semkantic Charactersisitcs of a course mangmnet System</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="#Rooms"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Junior"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#is_evaluated_by"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Assignments"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Senior"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#assist"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Modules"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Lecturer"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Person"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Exams"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#EntryLevel"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Contracts"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Hnd"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Students"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Year1"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#teaches"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Administrators"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Year3"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#VivaSession"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TeacherAssistant"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Timetable"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#has_tutors"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PHD"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#is_enrolled"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Lectures"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Staff"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#attends"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Organization"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#has_supervisor"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#MastersDegree"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Graduation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Examination"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Year2"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#FillTime"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#PartTime"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Assosiate"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#BachelorDegree"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#Administrators"/>
+        <Class IRI="#Staff"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Assignments"/>
+        <Class IRI="#Examination"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Assosiate"/>
+        <Class IRI="#Lecturer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#BachelorDegree"/>
+        <Class IRI="#Students"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Contracts"/>
+        <Class IRI="#Organization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#EntryLevel"/>
+        <Class IRI="#Lecturer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Examination"/>
+        <Class IRI="#Organization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Exams"/>
+        <Class IRI="#Examination"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#FillTime"/>
+        <Class IRI="#Contracts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Graduation"/>
+        <Class IRI="#Organization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Hnd"/>
+        <Class IRI="#Students"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Junior"/>
+        <Class IRI="#Lecturer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Lecturer"/>
+        <Class IRI="#Staff"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Lectures"/>
+        <Class IRI="#Organization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#MastersDegree"/>
+        <Class IRI="#Students"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Modules"/>
+        <Class IRI="#Organization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PHD"/>
+        <Class IRI="#Students"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#PartTime"/>
+        <Class IRI="#Contracts"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Person"/>
+        <Class IRI="#Organization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Rooms"/>
+        <Class IRI="#Organization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Senior"/>
+        <Class IRI="#Lecturer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Staff"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Students"/>
+        <Class IRI="#Person"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#TeacherAssistant"/>
+        <Class IRI="#Lecturer"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Timetable"/>
+        <Class IRI="#Organization"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#VivaSession"/>
+        <Class IRI="#Examination"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Year1"/>
+        <Class IRI="#BachelorDegree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Year2"/>
+        <Class IRI="#BachelorDegree"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Year3"/>
+        <Class IRI="#BachelorDegree"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class IRI="#Administrators"/>
+        <Class IRI="#Lecturer"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Assignments"/>
+        <Class IRI="#Exams"/>
+        <Class IRI="#VivaSession"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Assosiate"/>
+        <Class IRI="#EntryLevel"/>
+        <Class IRI="#Junior"/>
+        <Class IRI="#Senior"/>
+        <Class IRI="#TeacherAssistant"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#BachelorDegree"/>
+        <Class IRI="#Hnd"/>
+        <Class IRI="#MastersDegree"/>
+        <Class IRI="#PHD"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Examination"/>
+        <Class IRI="#Graduation"/>
+        <Class IRI="#Lectures"/>
+        <Class IRI="#Modules"/>
+        <Class IRI="#Person"/>
+        <Class IRI="#Rooms"/>
+        <Class IRI="#Timetable"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Staff"/>
+        <Class IRI="#Students"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class IRI="#Year1"/>
+        <Class IRI="#Year2"/>
+        <Class IRI="#Year3"/>
+    </DisjointClasses>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#assist"/>
+        <Class IRI="#TeacherAssistant"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#attends"/>
+        <Class IRI="#BachelorDegree"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#attends"/>
+        <Class IRI="#Hnd"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#attends"/>
+        <Class IRI="#MastersDegree"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#has_supervisor"/>
+        <Class IRI="#MastersDegree"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#has_supervisor"/>
+        <Class IRI="#PHD"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#has_supervisor"/>
+        <Class IRI="#Year3"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#has_tutors"/>
+        <Class IRI="#BachelorDegree"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#has_tutors"/>
+        <Class IRI="#Hnd"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#has_tutors"/>
+        <Class IRI="#MastersDegree"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#is_enrolled"/>
+        <Class IRI="#Students"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#is_evaluated_by"/>
+        <Class IRI="#BachelorDegree"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#is_evaluated_by"/>
+        <Class IRI="#Hnd"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#is_evaluated_by"/>
+        <Class IRI="#MastersDegree"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#teaches"/>
+        <Class IRI="#Lecturer"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#assist"/>
+        <Class IRI="#Assosiate"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#assist"/>
+        <Class IRI="#EntryLevel"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#assist"/>
+        <Class IRI="#Junior"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#assist"/>
+        <Class IRI="#Senior"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#attends"/>
+        <Class IRI="#Modules"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#has_supervisor"/>
+        <Class IRI="#Lectures"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#has_tutors"/>
+        <Class IRI="#Assosiate"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#has_tutors"/>
+        <Class IRI="#Senior"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#is_enrolled"/>
+        <Class IRI="#Modules"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#is_evaluated_by"/>
+        <Class IRI="#Examination"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#teaches"/>
+        <Class IRI="#Modules"/>
+    </ObjectPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+

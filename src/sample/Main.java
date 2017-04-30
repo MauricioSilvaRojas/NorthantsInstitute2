@@ -22,6 +22,10 @@ import static org.junit.Assert.*;
 
 public class Main extends Application {
 
+    /**
+     * Start method introduce the new view, starting page
+     * */
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("Views/startingPage.fxml"));

@@ -18,6 +18,9 @@ public class VivaSession {
     public VivaSession() {
     }
 
+    /**
+     * Assign to a SupervisorStudentList, a slot within a room
+     * */
     public void generateVivaSessions(List<Supervisor> supervisorList){
         Room roomA= new Room();
         Room roomB= new Room();
@@ -25,45 +28,24 @@ public class VivaSession {
 
         for (Supervisor svisor:supervisorList) {
             int sessionQt=0;
+            /** Retrieve all students supervized by svisor*/
             List<Student> studentsViva=svisor.getSupervisorStudentsList(svisor.getIdSTaff());
+            /**maxSt is the size of the list = number of students */
             int maxSt= studentsViva.size();
+
+            /**If the size is less than 2, system will find a slots in the same room, without dividing the list* */
             if (maxSt<=2){
                 roomA=roomA.findRoom(roomA.getAllAvailableRooms(),maxSt);
                 for (int i=1;i<=8;i++){
                     if ((roomA.isBooked(roomA,i).equals(null))||(roomA.isBooked(roomA,i).equals("null"))){
-                        roomA.bookRoomSlots(roomA,i,studentsViva.get(i).getStaff_idstaff());
+                        roomA.bookRoomSlots(roomA,i,String.valueOf(svisor.getIdSTaff()));
                         roomA.updateRoomInfo(roomA);
                         checkSessionNo++;
                     }
                 }
-
-            }else if(maxSt<=6 && maxSt>2){
-                int n=6;
-                roomA=roomA.findRoom(roomA.getAllAvailableRooms(),maxSt/2);
-                for (int i=0;i<((maxSt/2));i++){ // first Segment of list
-                    if (sessionQt==maxSt) {
-                        break;
-                    }
-                    roomA.bookRoomSlots(roomA,n,studentsViva.get(i).getStaff_idstaff());
-                    roomA.updateRoomInfo(roomA);
-                    sessionQt++;
-                    n++;
-                    checkSessionNo++;
-                }
-
-                roomB=roomB.findRoom(roomB.getAllAvailableRooms(),maxSt/2);
-                int m=6;
-                for (int i=0;i<((maxSt/2));i++){ // Second Segment of list
-                    if (sessionQt==(maxSt)) {
-                        break;
-                    }
-                    roomB.bookRoomSlots(roomB,m,studentsViva.get(sessionQt).getStaff_idstaff());
-                    roomB.updateRoomInfo(roomB);
-                    sessionQt++;
-                    checkSessionNo++;
-                }
             }
             else {
+                /**If list has more than 3 records will be divided in two, **/
                 roomA=roomA.findRoom6plus(roomA.getAllAvailableRooms());
                 for (int i=0;i<((maxSt/2));i++){ // first Segment of list
                     if (sessionQt==maxSt) {
@@ -87,11 +69,11 @@ public class VivaSession {
                 }
 
             }
-            }
+        }
         System.out.println("Sessions booked: "+ checkSessionNo);
 
-        }
     }
+}
 
 
     /*public void generateSessions(List<Supervisor> supervisorList, List<Room> roomList){
@@ -105,7 +87,6 @@ public class VivaSession {
             for(int n=0;n<=roomList.size();n++){
                 Room vivaRoomA=roomList.get(n);
                 Room vivaRoomB=roomList.get(n+1);
-
                 for(int i=1;i<=4;i++){
                     if (sessionQt==max) {
                         break;
@@ -136,10 +117,4 @@ public class VivaSession {
                 }
             }
         }
-
-
-
     }*/
-
-
-

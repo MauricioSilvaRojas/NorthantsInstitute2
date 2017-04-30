@@ -14,15 +14,7 @@ import java.util.Map;
  * Created by regga on 16/04/2017.
  */
 public class Supervisor extends Staff {
-   // private Boolean supervisorStatus;
 
-    /*public Boolean getSupervisorStatus() {
-        return supervisorStatus;
-    }*/
-
- /*   public void setSupervisorStatus(Boolean supervisorStatus) {
-        this.supervisorStatus = supervisorStatus;
-    }*/
 
     public Supervisor(){
 
